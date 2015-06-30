@@ -1,0 +1,15 @@
+@mixin container_img($img) {
+    height: 100%;
+    width: 100%;
+    background: url($img) no-repeat;
+    @include background-size(cover);
+    background-position: center;
+}
+
+@mixin border($width,
+$height) {
+    position: absolute;
+    width: $width;
+    background-color: $green;
+    height: $height;
+}

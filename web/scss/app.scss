@@ -1,0 +1,211 @@
+@import 'compass';
+@import 'compass/reset';
+@import "mixin.scss";
+@import "compass/css3";
+@import "compass/css3/animation";
+@import "compass/css3";
+
+
+//Constante
+$white : #e1e1e1;
+$black : #111;
+$green: #0A4937;
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFF;
+    font-family: "Refrigerator";
+}
+
+//Font family
+@font-face {
+    font-family: Refrigerator;
+    src: url(Refrigerator.ttf);
+}
+@font-face {
+    font-family: klavika_regular;
+    src: url(klavika_regular.otf);
+}
+@font-face {
+    font-family: Gotham_Bold;
+    src: url(Gotham_Bold.ttf);
+}
+@font-face {
+    font-family: Gotham_light;
+    src: url(Gotham_light.ttf);
+}
+
+
+//BG
+.nm_container_video{
+	height:100%;
+	width:100%;
+	position: absolute;
+	overflow:hidden;
+	video{
+		min-width: 100%;
+		min-height:100%;
+		  margin-top: -169px;
+		  opacity: 0.3;
+}
+	}
+.nm_black{
+	background: black;
+	width:100%;
+	height:100%;
+}
+
+//Title
+.nm_container_title{
+	height: auto;
+  width: auto;
+  right: 0;
+  top: 0;
+  position: absolute;
+  background: $green;
+  opacity: 0.5;
+  text-align:center;
+  position: relative;
+  @include box-sizing(border-box);
+		h1{
+			font-family: "Gotham_light";
+			color: #e1e1e1;
+			vertical-align: center;
+			font-size:1.875em;
+			padding-top:35px;
+			opacity: 0.8;
+		}
+		h2{
+	font-family: "Gotham_Bold";
+  color: #e1e1e1; vertical-align: center;
+  font-size: 3em;
+  opacity: 0.9; 
+  line-height: .9;
+  text-transform: uppercase;
+  padding: 20px 35px 30px;
+		}
+}
+
+
+//Animations
+@include keyframes(border_width) {
+    0% {
+        width: 0px;
+    }
+    10% {
+        width: 0px;
+    }
+    100% {
+        width: 100%
+    }
+}
+@include keyframes(border_height) {
+    0% {
+        height: 0px;
+    }
+    10% {
+        height: 0px;
+    }
+    100% {
+        height: 100%
+    }
+}
+@include keyframes(border_width_bottom) {
+    0% {
+        width: 0px;
+    }
+    10% {
+        width: 0px;
+    }
+    80% {
+        width: 100%;
+    }
+    100% {
+       width: 65%;
+    }
+}
+
+@include keyframes(apparition) {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity:0;
+    }
+    60%{
+    	opacity:1;
+    }
+    70%{
+    	opacity:0;
+    }
+    80%{
+    opacity:1;
+    }
+     90%{
+    opacity:0;
+    }
+    100% {
+    opacity:1;
+    }
+}
+
+
+//Bordures
+.nm_container_animate{
+	width: auto;
+  height: auto;
+  right: 20%;
+  top: 14%;
+  position: absolute;
+  padding: 133px 50px;
+  @include box-sizing(border-box);
+
+  		.border_bottom {
+            @include border(65%, 5px);
+            bottom: 0px;
+            right: 0px;
+            @include animation(border_width_bottom 5s ease-in-out);
+        }
+        .border_top {
+            @include border(100%, 5px);
+            top: 0px;
+            left: 0px;
+            @include animation(border_width 4s ease-in-out);
+        }
+        .border_left {
+            @include border(5px, 100%);
+            bottom: 0px;
+            left: 0px;
+            @include animation(border_height 4s ease-in-out);
+        }
+        .border_right {
+            @include border(5px, 100%);
+            top: 0px;
+            right: 0px;
+            @include animation(border_height 4s ease-in-out);
+        }
+        .nm_container_action{
+       	width: auto;
+		  height: auto;
+		  bottom: -19px;
+		  position: absolute;
+		  padding: 10px;
+
+        	h3{
+		font-family: "Gotham_light";
+		  color: #e1e1e1;
+		  font-size: 25px;
+		  opacity: 0.9;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  @include animation(apparition 10s ease-in-out);
+			}
+			h3 a{
+				text-decoration:none;
+			}
+
+    }
+}
+
