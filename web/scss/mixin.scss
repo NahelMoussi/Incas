@@ -13,3 +13,11 @@ $height) {
     background-color: $green;
     height: $height;
 }
+
+@mixin line_horizontal($width,
+$color) {
+	height: 2px;
+	width: $width;
+	background: $color;
+}
+

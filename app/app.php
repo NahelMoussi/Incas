@@ -19,7 +19,7 @@ switch($_SERVER['HTTP_HOST']){
     case 'localhost':
         $config['debug'] = true;
         $config['db_host'] = 'localhost';
-        $config['db_name'] = 'partiel'; // A CHANGER
+        $config['db_name'] = 'acas'; // A CHANGER
         $config['db_user'] = 'root';
         $config['db_pass'] = '';
         break;

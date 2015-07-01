@@ -4,19 +4,24 @@
 @import "compass/css3";
 @import "compass/css3/animation";
 @import "compass/css3";
+@import "compass/css3/transition" ;
 
 
 //Constante
 $white : #e1e1e1;
 $black : #111;
-$green: #0A4937;
+$green: #e1e1e1;
+$yellow : #f8d162;
 
 body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: #FFF;
+    background: #1c1c1c;
     font-family: "Refrigerator";
+}
+a{
+	text-decoration: none;
 }
 
 //Font family
@@ -65,13 +70,13 @@ body {
   top: 0;
   position: absolute;
   background: $green;
-  opacity: 0.5;
+  opacity: 0.8;
   text-align:center;
   position: relative;
   @include box-sizing(border-box);
 		h1{
-			font-family: "Gotham_light";
-			color: #e1e1e1;
+			font-family: "klavika_regular";
+			color: $black;
 			vertical-align: center;
 			font-size:1.875em;
 			padding-top:35px;
@@ -79,7 +84,8 @@ body {
 		}
 		h2{
 	font-family: "Gotham_Bold";
-  color: #e1e1e1; vertical-align: center;
+  color: $black; 
+  vertical-align: center;
   font-size: 3em;
   opacity: 0.9; 
   line-height: .9;
@@ -123,7 +129,7 @@ body {
         width: 100%;
     }
     100% {
-       width: 65%;
+       width: 76%;
     }
 }
 
@@ -150,7 +156,40 @@ body {
     opacity:1;
     }
 }
-
+//renverse
+@include keyframes(border_width_bottom_renverse) {
+    0% {
+        width: 76%;
+    }
+    10% {
+        width: 76%;
+    }
+    100% {
+       width: 0%;
+    }
+}
+@include keyframes(border_width_renverse) {
+    0% {
+        width: 100%;
+    }
+    10% {
+        width: 100%;
+    }
+    100% {
+        width: 0%
+    }
+}
+@include keyframes(border_height_renverse) {
+    0% {
+        height: 100%;
+    }
+    10% {
+        height: 100%;
+    }
+    100% {
+        height: 0%
+    }
+}
 
 //Bordures
 .nm_container_animate{
@@ -163,25 +202,25 @@ body {
   @include box-sizing(border-box);
 
   		.border_bottom {
-            @include border(65%, 5px);
+            @include border(76%, 3px);
             bottom: 0px;
             right: 0px;
             @include animation(border_width_bottom 5s ease-in-out);
         }
         .border_top {
-            @include border(100%, 5px);
+            @include border(100%, 3px);
             top: 0px;
             left: 0px;
             @include animation(border_width 4s ease-in-out);
         }
         .border_left {
-            @include border(5px, 100%);
+            @include border(3px, 100%);
             bottom: 0px;
             left: 0px;
             @include animation(border_height 4s ease-in-out);
         }
         .border_right {
-            @include border(5px, 100%);
+            @include border(3px, 100%);
             top: 0px;
             right: 0px;
             @include animation(border_height 4s ease-in-out);
@@ -192,20 +231,280 @@ body {
 		  bottom: -19px;
 		  position: absolute;
 		  padding: 10px;
+		  left:20px;
 
         	h3{
-		font-family: "Gotham_light";
-		  color: #e1e1e1;
-		  font-size: 25px;
-		  opacity: 0.9;
-		  text-transform: uppercase;
-		  letter-spacing: 2px;
+			font-family: "Refrigerator";
+			  color: $green;
+			  font-size: 30px;
+			  opacity: 0.9;
+			  text-transform: uppercase;
+			  letter-spacing: 3px;
 		  @include animation(apparition 10s ease-in-out);
 			}
 			h3 a{
 				text-decoration:none;
+				color: $green;
 			}
 
     }
 }
 
+
+//Animation de fin 
+	.bounce_border_bottom {
+            @include border(0%, 3px);
+            bottom: 0px;
+            right: 0px;
+            @include animation(border_width_bottom_renverse 5s ease-in-out);
+        }
+        .bounce_border_top {
+            @include border(0%, 3px);
+            top: 0px;
+            left: 0px;
+            @include animation(border_width_renverse 4s ease-in-out);
+        }
+        .bounce_border_left {
+            @include border(3px, 0%);
+            bottom: 0px;
+            left: 0px;
+            @include animation(border_height_renverse 4s ease-in-out);
+        }
+        .bounce_border_right {
+            @include border(3px, 0%);
+            top: 0px;
+            right: 0px;
+            @include animation(border_height_renverse 4s ease-in-out);
+        }
+
+
+
+////////////////////////////PAGE DEUX
+
+
+//BG
+
+@include keyframes(bg_move) {
+    0% {
+        margin-left:0%;
+    }
+    100% {
+        margin-left:-20%;
+    }
+}
+
+@include keyframes(cross_move) {
+    0% {
+        right: -4%;
+    }
+    100% {
+	right: -7%;
+    }
+}
+
+@include keyframes(begin_line) {
+    0% {
+        width: 0%;
+    }
+    100% {
+	width: 282px;
+    }
+}
+
+@include keyframes(begin_hidden) {
+    0% {
+        width: 77px;
+        margin-left:-2px;
+    }
+    100% {
+	width: 26px;
+	margin-left: 25px;
+    }
+}
+
+
+@include keyframes(opacity) {
+    0% {
+	opacity:0
+    }
+    100% {
+	width: 26px;
+	margin-left: 25px;
+    }
+}
+
+@include keyframes(begin_text) {
+    0% {
+        margin-top:30px;
+        opacity: 0;
+    }
+    50% {
+	     margin-top:26px;
+	     opacity: 0;
+    }
+    100% {
+        margin-top:50px;
+        opacity: 1;
+    }
+}
+
+
+
+
+.nm_container_hidden{
+	width: 29%;
+	height:100%;
+	overflow:hidden;
+	position: absolute;
+		
+	.nm_container_slider{
+		height:100%;
+		width: 999999999px;
+			.container_background{
+				width: 100%;
+				height:100%;
+				@include animation(bg_move 99999s ease infinite); 
+			}
+	}
+}
+
+.nm_container_right{
+  display: inline-block;
+  width: 71%;
+  height: 100%;
+  position: absolute;
+  float: right;
+  right: 0px;
+  display: table;
+  overflow: hidden;
+  .number{
+		width: 72px;
+		  height: 72px;
+		  border: 2px solid #6b6b6b;
+		  text-align: center;
+		  margin-bottom: 75px;
+		  margin-left: -53px;
+  		span{
+		color: #e1e1e1;
+		  font-size: 40px;
+		  vertical-align: middle;
+		  top: 24%;
+		  padding-top: 23px;
+		  position: relative;
+  		}
+  		.hidden{
+		  height: 80px;
+		  width: 26px;
+		  background: #1c1c1c;
+		  margin-left: 25px;
+		  margin-top: -3px;
+		  position: absolute;
+		  @include animation(begin_hidden 2s ease-out);
+  		}
+  }
+  	.container_texte{
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: 14%;
+			h1{
+			font-size: 72px;
+			color: $yellow;
+			}
+			h2{
+			font-size: 36px;
+			color: $yellow;
+			}
+			.line_horizontal{
+				@include line_horizontal(282px,#515151);
+				margin-top: 21px;
+				margin-left: -53px;
+				@include animation(begin_line 1s ease-in);
+			}
+			p{
+				width:auto;
+				font-size: 24px;
+				color: $white;
+				margin-top: 50px;
+				margin-right:130px;
+				@include animation(begin_text 2s ease);
+			}
+  	}
+}
+
+
+.nm_container_cross{
+  width: auto;
+  height: 20px;
+  position: absolute;
+  float: right;
+  display: inline;
+  bottom: 8%;
+  right: -4%;
+  @include transition-property(all);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease-in);
+
+	.arrow {
+  position: absolute;
+  padding: 7px;
+  box-shadow: 1px -1px 0 1px #807a7a inset;
+  -webkit-box-shadow: 2px -2px #4E4D4D inset;
+  border: solid transparent;
+  border-width: 0 0 2rem 2rem;
+  transition: 0.2s;
+  transform: rotate(225deg);
+  left: 110px;
+  float: right;
+  bottom: -15px;
+	}
+	.line_horizontal{
+	@include line_horizontal(53px,#4E4D4D);
+position: absolute;
+  top: 11px;
+  right: 86px;
+	}
+	h4{
+	color: #807a7a;
+  font-size: 18px;
+  font-family: "Refrigerator";
+  margin-top: 24px;
+  margin-right: 83px;
+	}
+	h4 a{
+		color: #807a7a;
+	}
+
+}
+
+.nm_container_cross:hover h4{
+	opacity:0;
+}
+
+.nm_container_cross:hover {
+	@include animation(cross_move 1s ease-out infinite); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//LOADER
+.loader{
+	position : fixed;
+z-index: 9999;
+background : url('https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif') 50% 50% no-repeat;
+top : 0px;
+left : 0px;
+height : 100%;
+width : 100%;
+cursor : wait;
+}

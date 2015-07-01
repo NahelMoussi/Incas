@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+ 
+<head>
+    <meta charset="utf-8" />
+     <link href="{{ app.request.basepath }}/css/mixin.css" rel="stylesheet" />
+    <link href="{{ app.request.basepath }}/css/app.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Overlock:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:800' rel='stylesheet' type='text/css'>
+    <title>Information</title>
+</head>
+ 
+<body>
+
+{% for informations in all_informations %}
+<div class="nm_container_hidden">
+    <div class="nm_container_slider">
+        <div class="container_background " style="background : url('http://www.hapshack.com/images/{{informations.bg}}') repeat;"></div>
+    </div>
+</div>
+
+<div class="nm_container_right">
+    <div class="container_texte">
+        <div class="number">
+            <div class="hidden"></div>
+            <span>0{{informations.id}}</span>
+        </div>
+        <h1>{{informations.title}}</h1>
+        <h2>{{informations.title_deux}}</h2>
+        <div class="line_horizontal"></div>
+        <p>{{informations.info}}</p>
+    </div>
+    <a href=""><div class="nm_container_cross">
+    <div class="line_horizontal"></div>
+    <div class="arrow"></div>
+    <h4>passez l'introduction</h4></a>
+</div>
+</div>
+
+
+ 
+{% endfor %}
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{{ app.request.basepath }}/js/script.js"></script>
+</body>
+ 
+</html>
